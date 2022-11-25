@@ -1,0 +1,64 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "homapage",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "refused",
+    "subtitle": "deeply",
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Quis veniam esse aute ullamco irure elit sunt id. Excepteur mollit reprehenderit aliquip irure aliqua cillum non ad minim nulla sunt.",
+        "spans": []
+      }
+    ],
+    "mobile_screen": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88"
+    },
+    "photo": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+    },
+    "infotext": [
+      {
+        "title": "own",
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Est dolore esse anim esse sunt velit ex est esse aute dolor dolor. Irure nulla dolore nisi nisi ullamco. Laborum amet minim est enim magna sunt eu deserunt cupidatat dolore tempor do.",
+            "spans": []
+          }
+        ],
+        "icon": {
+          "dimensions": {
+            "width": 900,
+            "height": 500
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb"
+        }
+      }
+    ],
+    "slices": []
+  }
+}

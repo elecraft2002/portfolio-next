@@ -1,0 +1,15 @@
+@import "flag-icons/css/flag-icons.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white,
+[data-collapsible="true"].bg-slate-100
+  + [data-collapsible="true"].bg-slate-100 {
+  @apply pt-0 md:pt-0;
+}
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;700;800&display=swap");
+body {
+  font-family: "Fira Sans", sans-serif;
+}
