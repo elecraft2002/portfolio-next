@@ -8,7 +8,7 @@ import Facts from "./Facts";
 import Info from "./Info";
 import Landing from "./Landing";
 import Projects from "./Projects";
-   
+
 const Popup = styled.div`
   position: fixed;
   bottom: 10px;
