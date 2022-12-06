@@ -42,7 +42,7 @@ const richTextComponents = {
 export default function App({ Component, pageProps }) {
   return (
     <PrismicProvider
-      internalLinkComponent={Link}
+      internalLinkComponent={Link as any}
       linkResolver={linkResolver}
       richTextComponents={richTextComponents}
     >
