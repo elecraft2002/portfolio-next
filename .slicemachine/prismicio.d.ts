@@ -75,6 +75,17 @@ interface HomapageDocumentData {
      */
     infotext: prismicT.GroupField<Simplify<HomapageDocumentDataInfotextItem>>;
     /**
+     * InfoText field in *Homepage*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factstext[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    factstext: prismicT.GroupField<Simplify<HomapageDocumentDataFactstextItem>>;
+    /**
      * Slice Zone field in *Homepage*
      *
      * - **Field Type**: Slice Zone
@@ -117,6 +128,42 @@ export interface HomapageDocumentDataInfotextItem {
      * - **Field Type**: Image
      * - **Placeholder**: *None*
      * - **API ID Path**: homapage.infotext[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+}
+/**
+ * Item in Homepage → InfoText
+ *
+ */
+export interface HomapageDocumentDataFactstextItem {
+    /**
+     * Title field in *Homepage → InfoText*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factstext[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Description field in *Homepage → InfoText*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factstext[].description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Topic Icon field in *Homepage → InfoText*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factstext[].icon
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
@@ -264,27 +311,42 @@ interface SettingsDocumentData {
      */
     logo: prismicT.ImageField<never>;
     /**
-     * Newsletter Description field in *Settings*
+     * Socials field in *Settings*
      *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: Text above the sign up form
-     * - **API ID Path**: settings.newsletterDescription
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[]
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
      *
      */
-    newsletterDescription: prismicT.RichTextField;
+    socials: prismicT.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
+}
+/**
+ * Item in Settings → Socials
+ *
+ */
+export interface SettingsDocumentDataSocialsItem {
     /**
-     * Newsletter Disclaimer field in *Settings*
+     * Icon field in *Settings → Socials*
      *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: Small text below sign up form
-     * - **API ID Path**: settings.newsletterDisclaimer
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[].icon
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    newsletterDisclaimer: prismicT.RichTextField;
+    icon: prismicT.ImageField<never>;
+    /**
+     * Link field in *Settings → Socials*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.socials[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
 }
 /**
  * Settings document from Prismic
@@ -655,6 +717,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataFactstextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

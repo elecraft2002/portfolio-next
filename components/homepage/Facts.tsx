@@ -8,9 +8,10 @@ import React from "react";
 import styled from "styled-components";
 import Window from "../../src/components/window/Window";
 import { COLORS, DEVICE, SIZE } from "../../src/GlobalStyles";
+import likeGif from "../../src/assets/imgs/Iphone_screen.jpg";
 
 const StyledFactsContainer = styled.section`
-  background: linear-gradient(90deg, ${COLORS.blue} 0%, ${COLORS.black} 100%);
+  background: linear-gradient(90deg, ${COLORS.red} 0%, ${COLORS.pink} 100%);
   clip-path: polygon(
     0 4em,
     35% 4em,
@@ -43,8 +44,11 @@ const InfoCenterBlock = styled.div`
 
 const InfoGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
   align-items: center;
+  @media ${DEVICE.mobileM} {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 interface IHeading2 {
@@ -100,7 +104,10 @@ const InfoText = (props: IInfoText) => {
     </li>
   );
 };
-
+const StyledImageContainer = styled.div`
+  height: 50vh;
+  width: 50vw;
+`;
 export default function Facts(props) {
   return (
     <StyledFactsContainer>
@@ -108,13 +115,23 @@ export default function Facts(props) {
         <SHeading2 color={COLORS.white}>Vaše weby budou výjmečné</SHeading2>
         <InfoGrid>
           <Window
-            height="auto"
-            width="auto"
+            height="100%"
+            width="100%"
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            {/* <Image   {...likeGif} alt="like guy" /> */}
+            <Image
+              {...likeGif}
+              alt="like guy"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </Window>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            quod doloribus magni expedita maxime quidem architecto labore
+            dolores quia explicabo voluptatum quos, enim, adipisci illum libero
+            in facilis officiis eius?
+          </div>
           <div>
             {/* <ul>
               {props.homepage.data.infotext.map((section: any, i: number) => {
@@ -130,8 +147,6 @@ export default function Facts(props) {
             </ul> */}
           </div>
         </InfoGrid>
-        <SHeading2 color={COLORS.white}>Projekty</SHeading2>
-        <div style={{ height: "150vh" }}></div>
       </InfoCenterBlock>
     </StyledFactsContainer>
   );

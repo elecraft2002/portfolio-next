@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Draggable from "react-draggable";
 import styled from "styled-components";
 import Cross from "../../assets/svgs/Cross";
@@ -65,9 +65,24 @@ interface IPosition {
 
 export default function Window(props: IWindow) {
   const [isOpened, setOpenState] = useState<boolean>(true);
+  // const [dimensions, setDimensions] = useState([0, 0]);
+  const ref = useRef<HTMLDivElement>(null);
+  // const handleResize = () => {
+  //   setDimensions([
+  //     ref.current?.offsetHeight - 32,
+  //     ref.current?.offsetWidth - 32,
+  //   ]);
+  //   console.log("ref.current.innerHTML");
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
 
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
   return (
-    <OriginalPosotion height={props.height} width={props.width}>
+    <OriginalPosotion ref={ref} height={props.height} width={props.width}>
       <Draggable handle=".handler">
         <WindowContainer
           height={props.height}

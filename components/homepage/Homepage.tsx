@@ -5,10 +5,11 @@ import Button from "../../src/components/Button";
 import Window from "../../src/components/window/Window";
 import { COLORS } from "../../src/GlobalStyles";
 import Facts from "./Facts";
+import Form from "./Form";
 import Info from "./Info";
 import Landing from "./Landing";
 import Projects from "./Projects";
-         
+
 const Popup = styled.div`
   position: fixed;
   bottom: 10px;
@@ -17,6 +18,7 @@ const Popup = styled.div`
 `;
 export interface IHome {
   homepage: any;
+  settings?: any;
 }
 export default function Home(props: IHome) {
   return (
@@ -26,6 +28,7 @@ export default function Home(props: IHome) {
         <Info homepage={props.homepage} />
         <Projects />
         <Facts />
+        <Form homepage={props.homepage} settings={props.settings} />
       </ParallaxProvider>
       <Popup>
         <Window

@@ -15,7 +15,7 @@ const Index = ({ page, navigation, settings, homepage }) => {
       navigation={navigation}
       settings={settings}
     >
-      <Homepage homepage={homepage}/>
+      <Homepage homepage={homepage} settings={settings}/>
     </Layout>
   );
 };
