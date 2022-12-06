@@ -65,7 +65,7 @@ export default function Navigation({
       <ul>
         {alternateLanguages.map((lang: any) => (
           <li key={lang.lang}>
-            <PrismicLink href={linkResolver(lang)} locale={lang.lang}>
+            <PrismicLink href={linkResolver(lang)}/*  locale={lang.lang} */>
               {/* <span className="sr-only">{lang.lang}</span> */}
               <FlagIcon lang={lang.lang} />
             </PrismicLink>

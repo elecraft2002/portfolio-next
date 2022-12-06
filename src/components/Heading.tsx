@@ -6,7 +6,7 @@ export const Heading = ({
   size = "8xl",
   children,
   className,
-}) => {
+}:any) => {
   return (
     <Comp
       className={clsx(
