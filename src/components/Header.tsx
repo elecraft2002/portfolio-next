@@ -35,7 +35,7 @@ export const Header = ({ alternateLanguages = [], navigation, settings }) => {
             ))}
             {alternateLanguages.map((lang) => (
               <li key={lang.lang}>
-                <PrismicLink href={linkResolver(lang)} locale={lang.lang}>
+                <PrismicLink href={linkResolver(lang)}/*  locale={lang.lang as any} */>
                   <span className="sr-only">{lang.lang}</span>
                   <FlagIcon lang={lang.lang} />
                 </PrismicLink>
