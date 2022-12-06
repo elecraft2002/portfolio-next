@@ -38,7 +38,7 @@
     "react-draggable": "^4.4.5",
     "react-intersection-observer": "^9.4.1",
     "react-scroll-parallax": "^3.3.1",
-    "react-three": "^0.9.7",
+    "react-three": "^0.8.0",
     "reactstrap": "^9.1.5",
     "styled-components": "^5.3.6",
     "three": "^0.146.0",
