@@ -205,7 +205,7 @@ const DesktopProjects = ({}) => {
   );
 };
 const MobileProjects = () => {
-  return <p>"Mobile"</p>;
+  return <p>Mobile</p>;
 };
 
 export default function Projects() {
