@@ -27,8 +27,8 @@ export default function Home(props: IHome) {
         <Landing homepage={props.homepage} />
         <Info homepage={props.homepage} />
         <Projects />
-        <Facts />
-        <Form homepage={props.homepage} settings={props.settings} />
+        <Facts homepage={props.homepage} settings={props.settings} />
+        <Form homepage={props.homepage} />
       </ParallaxProvider>
       <Popup>
         <Window

@@ -5,6 +5,7 @@ export const COLORS = {
   black: "#000",
   red: "#FF312E",
   blue: "#256EFF",
+  green: "#09FF00",
 };
 export const NAV_HEIGHT = "80px";
 export const SIZE = {

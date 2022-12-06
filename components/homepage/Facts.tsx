@@ -9,6 +9,8 @@ import styled from "styled-components";
 import Window from "../../src/components/window/Window";
 import { COLORS, DEVICE, SIZE } from "../../src/GlobalStyles";
 import likeGif from "../../src/assets/imgs/Iphone_screen.jpg";
+import { IHome } from "./Homepage";
+import Socials from "./Socials";
 
 const StyledFactsContainer = styled.section`
   background: linear-gradient(90deg, ${COLORS.red} 0%, ${COLORS.pink} 100%);
@@ -24,6 +26,23 @@ const StyledFactsContainer = styled.section`
   );
   display: flex;
   flex-direction: column;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-size: 20vw 20vw;
+    background-image: linear-gradient(
+        to right,
+        ${COLORS.white} 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, ${COLORS.white} 1px, transparent 1px);
+  }
   @media ${DEVICE.laptopL} {
     align-items: center;
   }
@@ -104,11 +123,12 @@ const InfoText = (props: IInfoText) => {
     </li>
   );
 };
-const StyledImageContainer = styled.div`
-  height: 50vh;
-  width: 50vw;
+const StyledTextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 `;
-export default function Facts(props) {
+export default function Facts(props: IHome) {
   return (
     <StyledFactsContainer>
       <InfoCenterBlock>
@@ -123,17 +143,25 @@ export default function Facts(props) {
             <Image
               {...likeGif}
               alt="like guy"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                maxHeight: "80vh",
+                objectFit: "cover",
+              }}
             />
           </Window>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-            quod doloribus magni expedita maxime quidem architecto labore
-            dolores quia explicabo voluptatum quos, enim, adipisci illum libero
-            in facilis officiis eius?
-          </div>
-          <div>
-            {/* <ul>
+          <StyledTextContainer>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium quod doloribus magni expedita maxime quidem architecto
+              labore dolores quia explicabo voluptatum quos, enim, adipisci
+              illum libero in facilis officiis eius?
+            </p>
+            <Socials socials={props.settings?.data.socials} />
+          </StyledTextContainer>
+          {/* <div>
+            <ul>
               {props.homepage.data.infotext.map((section: any, i: number) => {
                 return (
                   <InfoText
@@ -144,8 +172,8 @@ export default function Facts(props) {
                   />
                 );
               })}
-            </ul> */}
-          </div>
+            </ul> 
+          </div>*/}
         </InfoGrid>
       </InfoCenterBlock>
     </StyledFactsContainer>
