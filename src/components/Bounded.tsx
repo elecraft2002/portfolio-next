@@ -7,9 +7,9 @@ export const Bounded = ({
   collapsible = true,
   className,
   children,
-}) => {
+}: React.HTMLAttributes<HTMLDivElement> | any) => {
   return (
-    <Comp
+    <Comp 
       data-collapsible={collapsible}
       className={clsx(
         "px-6 py-20 md:py-32",
