@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 //const scroll = () => {
-function scroll() {
+function useScroll() {
     const [scrollOffset, setScrollOffset] = useState(0)
     useEffect(() => {
         const handleScroll = () => {
@@ -17,4 +17,4 @@ function scroll() {
     }, []);
     return scrollOffset
 }
-export default scroll
+export default useScroll
