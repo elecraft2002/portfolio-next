@@ -89,7 +89,7 @@ const InfoText = (props: IInfoText) => {
     <li>
       <StyledInfoHeading>
         <StyledIcon>
-          <PrismicImage field={props.icon} />
+          <PrismicImage field={props.icon as any} />
         </StyledIcon>
         <h3>{props.title}</h3>
       </StyledInfoHeading>
