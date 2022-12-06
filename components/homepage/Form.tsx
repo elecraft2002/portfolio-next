@@ -3,10 +3,10 @@ import styled from "styled-components";
 import Window from "../../src/components/window/Window";
 import { COLORS } from "../../src/GlobalStyles";
 import { IHome } from "./Homepage";
+import { useForm } from "react-hook-form";
 
 const StyledSTDOUT = styled.span``;
 const StyledSTDUSER = styled.span`
-  color: ${COLORS.green};
   display: inline-flex;
   align-items: center;
   width: 100%;
@@ -30,7 +30,7 @@ const StyledCursor = styled.span`
   }
 `;
 const StyledInput = styled.input`
-  width: 100%;
+  /* width: 100%; */
   background: ${COLORS.black};
   border: none;
   outline: none;
@@ -40,29 +40,56 @@ const StyledList = styled.ul`
 `;
 const FormWindow = () => {
   const [name, updateName] = useState<string>("");
-  const nameInput = useRef(null);
-  const handleNameUpdate = () => {
-    updateName("");
+  // const nameRef = useRef<HTMLInputElement>(null);
+  const handleNameUpdate = (e) => {
+    updateName(e.target.value);
+    console.log(e.target.value);
   };
-  return (
-    <StyledList>
-      <li>
-        <StyledSTDOUT>Zadejte jméno a příjmení:</StyledSTDOUT>
-        <br />
-        <StyledSTDUSER>
-          user@webdesign: ~$
-          <StyledCursor />
-          <StyledInput
-            ref={nameInput}
-            type="text"
-            placeholder="Vojtík.."
-            onKeyDown={handleNameUpdate}
-          />
-        </StyledSTDUSER>
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ reValidateMode: "onChange" });
 
-        <br />
-      </li>
-    </StyledList>
+  const User = () => {
+    return (
+      <span>
+        <span style={{ color: COLORS.green }}>
+          {!name ? "user" : name.replace(" ", "")}@web:
+        </span>
+         <span style={{ color: COLORS.blue }}>~</span>$
+      </span>
+    );
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit((data) => console.log(data))}
+      style={{ width: "100%" }}
+    >
+      <StyledList>
+        <li>
+          <StyledSTDOUT>Zadejte jméno a příjmení:</StyledSTDOUT>
+          <br />
+          <StyledSTDUSER>
+            <User />
+            {!name && <StyledCursor />}
+            <StyledInput
+              {...register("name", {
+                required: true,
+                onChange: handleNameUpdate,
+                maxLength:30
+              })}maxLength={30}
+            />
+          </StyledSTDUSER>
+
+          <br />
+        </li>
+        <li>
+          <input type="submit" />
+        </li>
+      </StyledList>
+    </form>
   );
 };
 
