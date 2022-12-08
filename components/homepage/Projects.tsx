@@ -11,6 +11,7 @@ import { COLORS, SIZE } from "../../src/GlobalStyles";
 import { useInView } from "react-intersection-observer";
 import Button from "../../src/components/Button";
 import ProjectBlock from "./ProjectBlock";
+import MobileProjectBlock from "./MobileProjectBlock";
 
 const StyledSection = styled.section`
   min-height: 200vh;
@@ -190,10 +191,9 @@ const DesktopProjects = (props: IProjects) => {
               <mesh scale={9}>
                 {inView && (
                   <Iphone
-                    // image={"https://www.mall.cz/i/34831790"}
                     image={
-                      props.projects.results[section]?.data.cover_photo.url ||
-                      "https://www.mall.cz/i/34831790"
+                      props.projects.results[section]?.data.cover_photo.Mobile
+                        .url || "https://www.mall.cz/i/34831790"
                     }
                     color={colorEased}
                   />
@@ -220,13 +220,17 @@ const DesktopProjects = (props: IProjects) => {
     </StyledSection>
   );
 };
+
+const StyledMobileUl = styled.ul`
+  margin: 1rem;
+`;
 const MobileProjects = (props: IProjects) => {
   return (
-    <ul>
-      {props.projects.results.map((project: any) => {
-        return <p>{project.data.name}</p>;
+    <StyledMobileUl>
+      {props.projects.results.map((project: any, i: number) => {
+        return <MobileProjectBlock project={project} key={i} index={i} />;
       })}
-    </ul>
+    </StyledMobileUl>
   );
 };
 export default function Projects(props: IProjects) {

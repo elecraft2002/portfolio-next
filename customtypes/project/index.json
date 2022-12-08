@@ -17,7 +17,13 @@
         "config": {
           "label": "Cover photo",
           "constraint": {},
-          "thumbnails": []
+          "thumbnails": [
+            {
+              "name": "Mobile",
+              "width": 330,
+              "height": 720
+            }
+          ]
         }
       },
       "type": {

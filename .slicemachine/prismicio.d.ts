@@ -297,7 +297,7 @@ interface ProjectDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    cover_photo: prismicT.ImageField<never>;
+    cover_photo: prismicT.ImageField<"Mobile">;
     /**
      * Type field in *Project*
      *
