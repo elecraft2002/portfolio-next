@@ -159,6 +159,7 @@ const SubTitle = styled.p`
   }
 `;
 const Description = styled.span`
+  margin: 1rem 0;
   font-weight: 400;
   font-size: 1.5rem;
 `;
@@ -184,25 +185,23 @@ function LandingContent(props: IHome) {
   return (
     <ContentContainer>
       <ContentWidth>
-        <div>
-          <Parallax translateY={["10vh", "-10vh"]}>
-            <span>
-              <Title>{props.homepage.data.title}</Title>
-              <SubTitle>{props.homepage.data.subtitle}</SubTitle>
-            </span>
-            <Button
-              colorType="white"
-              onClick={() => {
-                console.log("Klik");
-              }}
-            >
-              Objednat
-            </Button>
-            <Description>
-              <PrismicRichText field={props.homepage.data.description} />
-            </Description>
-          </Parallax>
-        </div>
+        <Parallax translateY={["10vh", "-10vh"]}>
+          <span>
+            <Title>{props.homepage.data.title}</Title>
+            <SubTitle>{props.homepage.data.subtitle}</SubTitle>
+          </span>
+          <Button
+            colorType="white"
+            onClick={() => {
+              console.log("Klik");
+            }}
+          >
+            Objednat
+          </Button>
+          <Description>
+            <PrismicRichText field={props.homepage.data.description} />
+          </Description>
+        </Parallax>
       </ContentWidth>
     </ContentContainer>
   );

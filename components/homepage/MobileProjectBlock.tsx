@@ -62,12 +62,12 @@ export default function MobileProjectBlock(props: IProjectBlock) {
           <Button colorType="gradientPink">Více</Button>
         </StyledContainer>
         <StyledImgContainer>
-          {/* <Parallax translateX={["10%", "-10%"]}> */}
-          <StyledImg
-            src={props.project.data.cover_photo.url}
-            alt={props.project.data.cover_photo.alt}
-          />
-          {/* </Parallax> */}
+          <Parallax translateY={["10%", "-10%"]}>
+            <StyledImg
+              src={props.project.data.cover_photo.url}
+              alt={props.project.data.cover_photo.alt}
+            />
+          </Parallax>
         </StyledImgContainer>
       </StyledArticle>
     </li>
