@@ -4,6 +4,7 @@ import Window from "../../src/components/window/Window";
 import { COLORS } from "../../src/GlobalStyles";
 import { IHome } from "./Homepage";
 import { useForm } from "react-hook-form";
+import { SHeading2 } from "./Info";
 
 const StyledSTDOUT = styled.span``;
 const StyledSTDUSER = styled.span`
@@ -78,8 +79,9 @@ const FormWindow = () => {
               {...register("name", {
                 required: true,
                 onChange: handleNameUpdate,
-                maxLength:30
-              })}maxLength={30}
+                maxLength: 30,
+              })}
+              maxLength={30}
             />
           </StyledSTDUSER>
 
@@ -128,12 +130,13 @@ const StyledFormContainer = styled.section`
 `;
 const StyledContent = styled.div`
   padding-top: 4rem;
+  margin: 0 1rem;
 `;
 export default function Form(props: IHome) {
   return (
     <StyledFormContainer>
       <StyledContent>
-        <h2>Form</h2>
+        <SHeading2 color={COLORS.white}>Form</SHeading2>
         <Window
           height="100%"
           width="100%"

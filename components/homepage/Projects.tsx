@@ -45,7 +45,9 @@ const DesktopProjects = ({}) => {
   useEffect(() => {
     setSections(() => {
       return [...list.current.children].map((el: HTMLElement) => {
-        return el.offsetTop - sectionRef.current?.offsetTop-window.innerHeight;
+        return (
+          el.offsetTop - sectionRef.current?.offsetTop - window.innerHeight
+        );
       });
     });
   }, [window.innerWidth]);
@@ -53,6 +55,8 @@ const DesktopProjects = ({}) => {
   const mousePosition = useMousePos(sectionRef);
   const frame: number =
     scroll() - sectionRef.current?.offsetTop; /*  + window.innerHeight */
+  // const frame = 0;
+  // console.log(frame);
   const [fitScale, setFitScale] = useState(1);
   useEffect(() => {
     setFitScale(() => window.innerWidth / 650 + 100 / window.innerWidth);
@@ -72,7 +76,7 @@ const DesktopProjects = ({}) => {
   useEffect(() => {
     setKeyframeN(() => {
       let n = sections.findIndex(
-        (e: any) => e >= frame 
+        (e: any) => e >= frame - window.innerHeight / 4
       );
       if (n === 0) return 0;
       if (n === -1) {
@@ -82,7 +86,7 @@ const DesktopProjects = ({}) => {
     });
     setSection(() => {
       let n = sections.findIndex(
-        (e: any) => e >= frame + window.innerHeight / 2
+        (e: any) => e >= frame + window.innerHeight / 4
       );
       if (n === 0) return 0;
       if (n === -1) {
@@ -93,28 +97,28 @@ const DesktopProjects = ({}) => {
     if (keyframeN != 0) return;
     setScale(
       transformBetween(
-        [window.innerHeight / 4, window.innerHeight / 2],
+        [window.innerHeight / 4, window.innerHeight / 3],
         [fitScale, window.innerHeight / 2000],
         frame
       )
     );
     setPositionX(
       transformBetween(
-        [window.innerHeight / 4, window.innerHeight / 2],
+        [window.innerHeight / 4, window.innerHeight / 3],
         [0, endingPosition],
         frame
       )
     );
     setRotationY(
       transformBetween(
-        [window.innerHeight / 2, window.innerHeight / 2],
+        [window.innerHeight / 4, window.innerHeight / 3],
         [0, endingRotationY],
         frame
       )
     );
     setRotationZ(
       transformBetween(
-        [window.innerHeight / 2, window.innerHeight / 2],
+        [window.innerHeight / 4, window.innerHeight / 3],
         [0, -endingRotationZ],
         frame
       )
@@ -136,8 +140,8 @@ const DesktopProjects = ({}) => {
     rotation: [
       [
         -(mousePosition.y - window.innerHeight / 2) / 10000,
-        rotationY + (mousePosition.x - window.innerWidth / 2) / 10000,
-        rotationZ - (mousePosition.y - window.innerHeight / 2) / 10000,
+        rotationY /* + (mousePosition.x - window.innerWidth / 2) / 10000 */,
+        rotationZ /* - (mousePosition.y - window.innerHeight / 2) / 10000 */,
       ],
       [
         -(mousePosition.y - window.innerHeight / 2) / 10000,
@@ -161,7 +165,7 @@ const DesktopProjects = ({}) => {
     config: config.stiff,
   });
   const array = ["", "", ""];
-  // console.log(keyframes.position[keyframeN], keyframeN);
+  console.log(keyframes.position[keyframeN], keyframeN, [rotationY, rotationZ]);
   return (
     <StyledSection ref={sectionRef}>
       <StyledMobileContainer>
@@ -179,7 +183,7 @@ const DesktopProjects = ({}) => {
               scale={scaleEased as any}
               position={positionEased as any}
             >
-              <mesh rotation={[0, 0, 0]} scale={8} position={[0, 0, 0]}>
+              <mesh scale={9}>
                 {inView && (
                   <Iphone
                     image={"https://www.mall.cz/i/34831790"}
@@ -191,11 +195,15 @@ const DesktopProjects = ({}) => {
           </Suspense>
         </Canvas>
       </StyledMobileContainer>
-      <div style={{height:"50vh"}}></div>
+      <div style={{ height: "50vh" }}></div>
       <ul ref={list}>
         {array.map((project: any, i: number) => {
           return (
-            <StyledProjectLi index={i} key={i} style={{ height: "80vh",position:"relative" }}>
+            <StyledProjectLi
+              index={i}
+              key={i}
+              style={{ height: "80vh", position: "relative" }}
+            >
               <ProjectBlock />
             </StyledProjectLi>
           );
