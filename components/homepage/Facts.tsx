@@ -67,7 +67,7 @@ const InfoGrid = styled.div`
   display: grid;
   grid-gap: 1rem;
   align-items: center;
-  @media ${DEVICE.mobileM} {
+  @media ${DEVICE.mobileL} {
     grid-template-columns: 1fr 1fr;
   }
 `;

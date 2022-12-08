@@ -48,9 +48,24 @@ const InfoContainer = styled.section`
     66% 2em,
     66% 0,
     100% 0,
+
+    100% calc(100% - 0px),
+    66% calc(100% - 0px),
+    66% calc(100% - 2em),
+    35% calc(100% - 2em),
+    35% calc(100% - 1em),
+    0 calc(100% - 1em)
+  );
+  /* clip-path: polygon(
+    0 4em,
+    35% 4em,
+    35% 2em,
+    66% 2em,
+    66% 0,
+    100% 0,
     100% 100%,
     0 100%
-  );
+  ); */
 
   /* background: linear-gradient(90deg, rgba(132,0,181,1) 0%, rgba(255,49,46,1) 100%); */
 `;
@@ -115,9 +130,14 @@ interface IInfoText {
   description: [];
   icon: PrismicImageProps;
 }
+
+const StyledInfoText = styled.li`
+  margin: 1rem 0;
+`;
+
 const InfoText = (props: IInfoText) => {
   return (
-    <li>
+    <StyledInfoText>
       <StyledInfoHeading>
         <StyledIcon>
           <PrismicImage field={props.icon as any} />
@@ -128,12 +148,13 @@ const InfoText = (props: IInfoText) => {
       <StyledInfoDescription>
         <PrismicRichText field={props.description} />
       </StyledInfoDescription>
-    </li>
+    </StyledInfoText>
   );
 };
 const StyledSpacer = styled.div`
+    height:2rem;
   @media ${DEVICE.tablet} {
-    height: 150vh;
+    height: calc(150vh + 2rem);
   }
 `;
 export default function Info(props: IHome) {

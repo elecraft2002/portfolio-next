@@ -222,8 +222,30 @@ const DesktopProjects = (props: IProjects) => {
 };
 
 const StyledMobileUl = styled.ul`
-  margin: 1rem;
+  padding: 1rem;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    opacity: 0.05;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-size: 20vw 20vw;
+    background-image: linear-gradient(
+        to right,
+        ${COLORS.black} 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, ${COLORS.black} 1px, transparent 1px);
+  }
 `;
+
+const StyledProjectsContainer = styled.div`
+  
+`;
+
 const MobileProjects = (props: IProjects) => {
   return (
     <StyledMobileUl>
@@ -246,12 +268,12 @@ export default function Projects(props: IProjects) {
     };
   }, []);
   return (
-    <div>
+    <StyledProjectsContainer>
       {screenWidth > parseInt(SIZE.tablet) ? (
         <DesktopProjects projects={props.projects} />
       ) : (
         <MobileProjects projects={props.projects} />
       )}
-    </div>
+    </StyledProjectsContainer>
   );
 }

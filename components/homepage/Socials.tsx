@@ -24,7 +24,6 @@ const StyledLinkContainer = styled.div`
 `;
 
 const Social = ({ data }) => {
-  console.log(data);
   return (
     <>
       <StyledLinkContainer>
@@ -35,7 +34,6 @@ const Social = ({ data }) => {
 };
 
 export default function Socials({ socials }: ISocials) {
-  console.log(socials);
   return (
     <StyledList>
       {socials.map((social: any, i: number) => {
