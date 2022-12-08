@@ -8,12 +8,7 @@ import { useSpring, config, animated } from "@react-spring/three";
 import wallpaper from "../../src/assets/imgs/Iphone_screen.jpg";
 import { IHome } from "./Homepage";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
-import {
-  ParallaxBanner,
-  ParallaxBannerLayer,
-  Parallax,
-} from "react-scroll-parallax";
-import { useIsInViewport } from "../../src/functions/Viewport";
+import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 
 const CanvasBackgroundContainer = styled.div`
