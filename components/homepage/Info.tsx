@@ -131,13 +131,17 @@ const InfoText = (props: IInfoText) => {
     </li>
   );
 };
-
+const StyledSpacer = styled.div`
+  @media ${DEVICE.tablet} {
+    height: 150vh;
+  }
+`;
 export default function Info(props: IHome) {
   const ref = useRef<HTMLElement>(null);
   const [opacity, setOpacity] = useState<number>(1);
   const [bottom, setBottom] = useState<number>(1);
   const handleScrollFade = () => {
-    if (window.innerWidth >= 768 /* Tablet */) {
+    if (window.innerWidth >= parseInt(SIZE.tablet) /* Tablet */) {
       setOpacity(
         transformBetween(
           [0, window.innerHeight / 2],
@@ -194,7 +198,7 @@ export default function Info(props: IHome) {
           </Window>
         </InfoGrid>
         <SHeading2 color={COLORS.white}>Projekty</SHeading2>
-        <div style={{ height: "150vh" }}></div>
+        <StyledSpacer />
       </InfoCenterBlock>
     </InfoContainer>
   );

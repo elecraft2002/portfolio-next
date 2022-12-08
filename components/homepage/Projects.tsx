@@ -192,7 +192,8 @@ const DesktopProjects = (props: IProjects) => {
                   <Iphone
                     // image={"https://www.mall.cz/i/34831790"}
                     image={
-                      props.projects.results[section]?.data.cover_photo.url
+                      props.projects.results[section]?.data.cover_photo.url ||
+                      "https://www.mall.cz/i/34831790"
                     }
                     color={colorEased}
                   />
@@ -240,10 +241,9 @@ export default function Projects(props: IProjects) {
       window.removeEventListener("resize", handleScreenResize);
     };
   }, []);
-  console.log(props.projects);
   return (
     <div>
-      {screenWidth > 768 ? (
+      {screenWidth > parseInt(SIZE.tablet) ? (
         <DesktopProjects projects={props.projects} />
       ) : (
         <MobileProjects projects={props.projects} />
