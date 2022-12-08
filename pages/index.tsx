@@ -8,14 +8,14 @@ import React from "react";
 import { Layout } from "../src/components/Layout";
 import Homepage from "../components/homepage/Homepage";
 
-const Index = ({ page, navigation, settings, homepage }) => {
+const Index = ({ page, navigation, settings, homepage,projects }) => {
   return (
     <Layout
       alternateLanguages={settings.alternate_languages}
       navigation={navigation}
       settings={settings}
     >
-      <Homepage homepage={homepage} settings={settings}/>
+      <Homepage homepage={homepage} settings={settings} projects={projects} />
     </Layout>
   );
 };
@@ -29,13 +29,15 @@ export async function getStaticProps({ locale, previewData }) {
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
   const homepage = await client.getSingle("homapage", { lang: locale });
+  const projects = await client.getByType("project", { lang: locale });
 
   return {
     props: {
-    // page,
+      // page,
       navigation,
       settings,
       homepage,
+      projects,
     },
   };
 }

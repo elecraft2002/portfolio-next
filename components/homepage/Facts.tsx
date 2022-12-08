@@ -51,6 +51,7 @@ const StyledFactsContainer = styled.section`
 const InfoCenterBlock = styled.div`
   padding: 0 1rem;
   padding-top: 5em;
+  padding-bottom: 4rem;
   max-width: ${SIZE.laptopL};
   min-height: 100vh;
   color: ${COLORS.white};
@@ -58,6 +59,7 @@ const InfoCenterBlock = styled.div`
     width: ${SIZE.laptopL};
     padding: 0;
     padding-top: 5em;
+    padding-bottom: 4rem;
   }
 `;
 

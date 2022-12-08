@@ -42,6 +42,18 @@ export interface IRotation {
   y: number;
   z: number;
 }
+export interface Image {
+  dimensions: Dimensions;
+  alt:        string;
+  copyright:  string;
+  url:        string;
+}
+
+export interface Dimensions {
+  width:  number;
+  height: number;
+}
+
 export interface IIphone {
   rotation?: IRotation;
   image: string;
@@ -50,14 +62,14 @@ export interface IIphone {
 
 export function Iphone(props: IIphone) {
   const colorMap = useLoader(TextureLoader, props?.image);
-  // useEffect(() => {
-  //   const imgRatio =
-  //     textures[section].image.width / textures[section].image.height;
-  //   const planeRatio = 9 / 19.5;
-  //   textures[section].wrapS = THREE.RepeatWrapping; // THREE.ClampToEdgeWrapping;
-  //   textures[section].repeat.x = planeRatio / imgRatio;
-  //   textures[section].offset.x = -0.5 * (planeRatio / imgRatio - 1);
-  // }, [section]);
+  useEffect(() => {
+    const imgRatio =
+      colorMap.image.width / colorMap.image.height;
+    const planeRatio = 9 / 19.5;
+    colorMap.wrapS = THREE.RepeatWrapping; // THREE.ClampToEdgeWrapping;
+    colorMap.repeat.x = planeRatio / imgRatio;
+    colorMap.offset.x = -0.5 * (planeRatio / imgRatio - 1);
+  }, [props.image]);
   const { nodes, materials } = useGLTF("/iphone13_1.gltf") as any;
   return (
     <group dispose={null}>

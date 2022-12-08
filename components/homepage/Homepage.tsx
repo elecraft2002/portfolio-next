@@ -19,6 +19,7 @@ const Popup = styled.div`
 export interface IHome {
   homepage: any;
   settings?: any;
+  projects?: any;
 }
 export default function Home(props: IHome) {
   return (
@@ -26,7 +27,7 @@ export default function Home(props: IHome) {
       <ParallaxProvider>
         <Landing homepage={props.homepage} />
         <Info homepage={props.homepage} />
-        <Projects />
+        <Projects projects={props.projects}/>
         <Facts homepage={props.homepage} settings={props.settings} />
         <Form homepage={props.homepage} />
       </ParallaxProvider>

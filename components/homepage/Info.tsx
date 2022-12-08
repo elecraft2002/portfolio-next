@@ -70,8 +70,12 @@ const InfoCenterBlock = styled.div`
 
 const InfoGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
+  @media ${DEVICE.laptop} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+  }
 `;
 
 interface IHeading2 {
@@ -146,11 +150,9 @@ export default function Info(props: IHome) {
       );
       return;
     }
-    setOpacity(1)
+    setOpacity(1);
   };
-  const handleResize = () => {
-    
-  };
+  const handleResize = () => {};
   useEffect(() => {
     handleScrollFade();
     document.addEventListener("scroll", handleScrollFade);

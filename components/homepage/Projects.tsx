@@ -7,7 +7,7 @@ import scroll from "../../src/functions/Scroll";
 import { animated } from "@react-spring/three";
 import useMousePos from "../../src/functions/mouse";
 import styled from "styled-components";
-import { COLORS } from "../../src/GlobalStyles";
+import { COLORS, SIZE } from "../../src/GlobalStyles";
 import { useInView } from "react-intersection-observer";
 import Button from "../../src/components/Button";
 import ProjectBlock from "./ProjectBlock";
@@ -23,6 +23,9 @@ const StyledMobileContainer = styled.div`
   top: 0;
 `;
 
+interface IProjects {
+  projects: any;
+}
 interface IMobileContainer {
   index: number;
 }
@@ -30,12 +33,14 @@ interface IMobileContainer {
 const StyledProjectLi = styled.li<IMobileContainer>`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  max-width: ${SIZE.laptopL};
   grid-template-areas: ${(props) => {
     return props.index % 2 ? '". project"' : '"project ."';
   }};
+  margin: auto;
 `;
 
-const DesktopProjects = ({}) => {
+const DesktopProjects = (props: IProjects) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { ref: canvasRef, inView } = useInView({
     threshold: 0,
@@ -76,7 +81,7 @@ const DesktopProjects = ({}) => {
   useEffect(() => {
     setKeyframeN(() => {
       let n = sections.findIndex(
-        (e: any) => e >= frame - window.innerHeight / 4
+        (e: any) => e >= frame - window.innerHeight / 4 + 100
       );
       if (n === 0) return 0;
       if (n === -1) {
@@ -86,7 +91,7 @@ const DesktopProjects = ({}) => {
     });
     setSection(() => {
       let n = sections.findIndex(
-        (e: any) => e >= frame + window.innerHeight / 4
+        (e: any) => e >= frame - window.innerHeight / 4 + 100
       );
       if (n === 0) return 0;
       if (n === -1) {
@@ -164,8 +169,7 @@ const DesktopProjects = ({}) => {
     colorEased: frame > window.innerHeight / 3 ? "white" : COLORS.black,
     config: config.stiff,
   });
-  const array = ["", "", ""];
-  console.log(keyframes.position[keyframeN], keyframeN, [rotationY, rotationZ]);
+  // console.log(keyframes.position[keyframeN], keyframeN, [rotationY, rotationZ]);
   return (
     <StyledSection ref={sectionRef}>
       <StyledMobileContainer>
@@ -186,7 +190,10 @@ const DesktopProjects = ({}) => {
               <mesh scale={9}>
                 {inView && (
                   <Iphone
-                    image={"https://www.mall.cz/i/34831790"}
+                    // image={"https://www.mall.cz/i/34831790"}
+                    image={
+                      props.projects.results[section]?.data.cover_photo.url
+                    }
                     color={colorEased}
                   />
                 )}
@@ -197,14 +204,14 @@ const DesktopProjects = ({}) => {
       </StyledMobileContainer>
       <div style={{ height: "50vh" }}></div>
       <ul ref={list}>
-        {array.map((project: any, i: number) => {
+        {props.projects.results.map((project: any, i: number) => {
           return (
             <StyledProjectLi
               index={i}
               key={i}
               style={{ height: "80vh", position: "relative" }}
             >
-              <ProjectBlock />
+              <ProjectBlock project={project} />
             </StyledProjectLi>
           );
         })}
@@ -212,11 +219,16 @@ const DesktopProjects = ({}) => {
     </StyledSection>
   );
 };
-const MobileProjects = () => {
-  return <p>Mobile</p>;
+const MobileProjects = (props: IProjects) => {
+  return (
+    <ul>
+      {props.projects.results.map((project: any) => {
+        return <p>{project.data.name}</p>;
+      })}
+    </ul>
+  );
 };
-
-export default function Projects() {
+export default function Projects(props: IProjects) {
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const handleScreenResize = () => {
     setScreenWidth(window.innerWidth);
@@ -228,8 +240,14 @@ export default function Projects() {
       window.removeEventListener("resize", handleScreenResize);
     };
   }, []);
-
+  console.log(props.projects);
   return (
-    <div>{screenWidth > 768 ? <DesktopProjects /> : <MobileProjects />}</div>
+    <div>
+      {screenWidth > 768 ? (
+        <DesktopProjects projects={props.projects} />
+      ) : (
+        <MobileProjects projects={props.projects} />
+      )}
+    </div>
   );
 }

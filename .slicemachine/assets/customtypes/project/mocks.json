@@ -10,5 +10,32 @@
   "linked_documents": [],
   "lang": "en-us",
   "alternate_languages": [],
-  "data": {}
+  "data": {
+    "name": "experiment",
+    "cover_photo": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+    },
+    "type": "Projekt",
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Duis minim quis consectetur mollit excepteur. Nisi ut eu ipsum laborum proident aliquip proident nulla culpa cupidatat esse et labore non minim.",
+        "spans": []
+      }
+    ],
+    "description_short": [
+      {
+        "type": "paragraph",
+        "text": "Id deserunt pariatur velit non occaecat elit elit. Occaecat tempor excepteur exercitation et deserunt ut officia officia officia non excepteur. Do duis amet nostrud amet.",
+        "spans": []
+      }
+    ],
+    "visible_at_homepage": true
+  }
 }

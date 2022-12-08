@@ -1,3 +1,4 @@
+import { PrismicRichText } from "@prismicio/react";
 import React, { RefObject, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../src/components/Button";
@@ -20,18 +21,16 @@ const StyledProjectTitle = styled.h4`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
+interface IProjectBlock{
+  project:any;
+}
 
-export default function ProjectBlock(props) {
+export default function ProjectBlock(props:IProjectBlock) {
   return (
     <StyledProjectContainer>
-      <StyledProjectType>PROJEKT</StyledProjectType>
-      <StyledProjectTitle>Tablo třídy L4</StyledProjectTitle>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-        aspernatur pariatur quo sequi alias esse voluptatibus possimus eveniet,
-        earum assumenda laudantium recusandae quae soluta excepturi maxime
-        aliquid dolores minus necessitatibus.
-      </p>
+      <StyledProjectType>{ props.project.data.type }</StyledProjectType>
+      <StyledProjectTitle>{props.project.data.name}</StyledProjectTitle>
+      <PrismicRichText field={props.project.data.description_short}/>
       <Button colorType="gradientPink">VÍCE</Button>
     </StyledProjectContainer>
   );
