@@ -35,10 +35,63 @@ const StyledProjectLi = styled.li<IMobileContainer>`
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: ${SIZE.laptopL};
+  min-height:80vh;
+  position:relative;
   grid-template-areas: ${(props) => {
     return props.index % 2 ? '". project"' : '"project ."';
   }};
   margin: auto;
+  &:first-of-type:before {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    width: 100%;
+    height: 200%;
+    left: 0;
+    top: -200%;
+    background-size: 20vw 20vw;
+    background-image: linear-gradient(
+        to right,
+        ${COLORS.black} 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, ${COLORS.black} 1px, transparent 1px);
+      z-index:-1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-size: 20vw 20vw;
+    background-image: linear-gradient(
+        to right,
+        ${COLORS.black} 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, ${COLORS.black} 1px, transparent 1px);
+      z-index:-1;
+  }
+  &:last-of-type:after {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    width: 100%;
+    height: 150%;
+    left: 0;
+    top: 0;
+    background-size: 20vw 20vw;
+    background-image: linear-gradient(
+        to right,
+        ${COLORS.black} 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, ${COLORS.black} 1px, transparent 1px);
+      z-index:-1;
+  }
 `;
 
 const DesktopProjects = (props: IProjects) => {
@@ -210,7 +263,6 @@ const DesktopProjects = (props: IProjects) => {
             <StyledProjectLi
               index={i}
               key={i}
-              style={{ height: "80vh", position: "relative" }}
             >
               <ProjectBlock project={project} />
             </StyledProjectLi>
@@ -242,9 +294,7 @@ const StyledMobileUl = styled.ul`
   }
 `;
 
-const StyledProjectsContainer = styled.div`
-  
-`;
+const StyledProjectsContainer = styled.div``;
 
 const MobileProjects = (props: IProjects) => {
   return (

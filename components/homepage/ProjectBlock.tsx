@@ -1,4 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
+import Link from "next/link";
 import React, { RefObject, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../src/components/Button";
@@ -26,12 +27,13 @@ interface IProjectBlock{
 }
 
 export default function ProjectBlock(props:IProjectBlock) {
+  // console.log( props.project.id)
   return (
     <StyledProjectContainer>
       <StyledProjectType>{ props.project.data.type }</StyledProjectType>
       <StyledProjectTitle>{props.project.data.name}</StyledProjectTitle>
       <PrismicRichText field={props.project.data.description_short}/>
-      <Button colorType="gradientPink">VÍCE</Button>
+      <Link href={`/project/${props.project.id}`}><Button colorType="gradientPink">VÍCE</Button></Link>
     </StyledProjectContainer>
   );
 }
