@@ -4,10 +4,10 @@ import { createClient } from "../../../prismicio";
 // import { createClient } from '@prismicio/client'
 
 export default function Index(props) {
-  if (Object.keys(props).length === 0) return <p>404</p>;
   const router = useRouter();
   const id = router.query.id as string;
   console.log(props);
+  if (Object.keys(props).length === 0) return <p>404</p>;
   return (
     <div>
       {/* <h1>{props.project.data.name}</h1> */}
