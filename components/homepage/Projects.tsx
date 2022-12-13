@@ -41,7 +41,7 @@ const StyledProjectLi = styled.li<IMobileContainer>`
     return props.index % 2 ? '". project"' : '"project ."';
   }};
   margin: auto;
-  &:first-of-type:before {
+  /* &:first-of-type:before {
     content: "";
     position: absolute;
     opacity: 0.2;
@@ -91,7 +91,7 @@ const StyledProjectLi = styled.li<IMobileContainer>`
       ),
       linear-gradient(to bottom, ${COLORS.black} 1px, transparent 1px);
       z-index:-1;
-  }
+  } */
 `;
 
 const DesktopProjects = (props: IProjects) => {
