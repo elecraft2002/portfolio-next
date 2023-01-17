@@ -33,7 +33,7 @@ const StyledImg = styled.img`
   transform: scale(1.2);
 `;
 const StyledArticle = styled.article`
-  margin: 2em 0;
+  margin: 2em 0 7em 0;
 `;
 
 const StyledContainer = styled.div``;
@@ -64,14 +64,16 @@ export default function MobileProjectBlock(props: IProjectBlock) {
             <Button colorType="gradientPink">Více</Button>
           </Link>
         </StyledContainer>
-        <StyledImgContainer>
-          <Parallax translateY={["10%", "-10%"]}>
-            <StyledImg
-              src={props.project.data.cover_photo.url}
-              alt={props.project.data.cover_photo.alt}
-            />
-          </Parallax>
-        </StyledImgContainer>
+        <Link href={`/project/${props.project.id}`}>
+          <StyledImgContainer>
+            <Parallax translateY={["10%", "-10%"]}>
+              <StyledImg
+                src={props.project.data.cover_photo.url}
+                alt={props.project.data.cover_photo.alt}
+              />
+            </Parallax>
+          </StyledImgContainer>
+        </Link>
       </StyledArticle>
     </li>
   );
