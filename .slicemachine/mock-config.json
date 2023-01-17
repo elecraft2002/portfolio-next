@@ -1,5 +1,19 @@
 {
   "_cts": {
+    "404": {
+      "home": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      },
+      "error_message": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
     "navigation": {
       "links": {
         "label": {
@@ -45,7 +59,8 @@
         }
       }
     },
-    "project": {}
+    "project": {},
+    "footer": {}
   },
   "slices": {
     "Text": {
@@ -132,6 +147,24 @@
         "primary": {}
       }
     },
-    "InfoTextBlock": {}
+    "InfoTextBlock": {},
+    "ProjectText": {
+      "default": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
   }
 }

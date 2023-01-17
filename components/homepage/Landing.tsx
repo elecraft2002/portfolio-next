@@ -2,7 +2,15 @@ import { Canvas, Vector3 } from "@react-three/fiber";
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import styled, { StyledComponent } from "styled-components";
 import Button from "../../src/components/Button";
-import { COLORS, DEVICE, NAV_HEIGHT, SIZE } from "../../src/GlobalStyles";
+import {
+  COLORS,
+  DEVICE,
+  fadeIn,
+  grid,
+  NAV_HEIGHT,
+  SIZE,
+  StyledFadeInContainer,
+} from "../../src/GlobalStyles";
 import { IIphone, Iphone, IRotation } from "../../src/assets/models/Iphone";
 import { useSpring, config, animated } from "@react-spring/three";
 import wallpaper from "../../src/assets/imgs/Iphone_screen.jpg";
@@ -123,22 +131,7 @@ const LandingContainer = styled.div`
   );
   width: 100%;
   min-height: 120vh;
-  &:before {
-    content: "";
-    position: absolute;
-    opacity: 0.2;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-size: 20vw 20vw;
-    background-image: linear-gradient(
-        to right,
-        ${COLORS.white} 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, ${COLORS.white} 1px, transparent 1px);
-  }
+  ${grid()};
 `;
 
 export const Title = styled.h1`
@@ -181,13 +174,14 @@ const ContentWidth = styled.div`
 `;
 
 function LandingContent(props: IHome) {
-  console.log(props.homepage);
   return (
     <ContentContainer>
       <ContentWidth>
         <Parallax translateY={["10vh", "-10vh"]}>
           <span>
-            <Title>{props.homepage.data.title}</Title>
+            <StyledFadeInContainer>
+              <Title>{props.homepage.data.title}</Title>
+            </StyledFadeInContainer>
             <SubTitle>{props.homepage.data.subtitle}</SubTitle>
           </span>
           <Button

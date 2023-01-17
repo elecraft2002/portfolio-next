@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import Button from "../../src/components/Button";
 import { COLORS } from "../../src/GlobalStyles";
+import Link from "next/link";
 
 interface IProjectBlock {
   project: any;
@@ -59,7 +60,9 @@ export default function MobileProjectBlock(props: IProjectBlock) {
           <StyledTextContainer>
             <PrismicRichText field={props.project.data.description_short} />
           </StyledTextContainer>
-          <Button colorType="gradientPink">Více</Button>
+          <Link href={`/project/${props.project.id}`}>
+            <Button colorType="gradientPink">Více</Button>
+          </Link>
         </StyledContainer>
         <StyledImgContainer>
           <Parallax translateY={["10%", "-10%"]}>

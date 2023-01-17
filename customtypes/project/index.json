@@ -64,6 +64,17 @@
           "placeholder_true": "true",
           "default_value": true
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "project_text": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

@@ -1,0 +1,36 @@
+{
+  "id": "404",
+  "label": "404",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "error_message": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Error Message",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading2"
+        }
+      },
+      "error_image": {
+        "type": "Image",
+        "config": {
+          "label": "Error Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "home": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Home",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}

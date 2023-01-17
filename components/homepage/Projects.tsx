@@ -35,8 +35,8 @@ const StyledProjectLi = styled.li<IMobileContainer>`
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: ${SIZE.laptopL};
-  min-height:80vh;
-  position:relative;
+  min-height: 80vh;
+  position: relative;
   grid-template-areas: ${(props) => {
     return props.index % 2 ? '". project"' : '"project ."';
   }};
@@ -118,12 +118,24 @@ const DesktopProjects = (props: IProjects) => {
   // console.log(frame);
   const [fitScale, setFitScale] = useState(1);
   useEffect(() => {
-    setFitScale(() => window.innerWidth / 650 + 100 / window.innerWidth);
+    setFitScale(() => {
+      const size1 = window.innerWidth / 650 + 100 / window.innerWidth;
+      const size2 = window.innerHeight / 650 + 100 / window.innerHeight;
+      console.log(size1, size2);
+      return size1 < size2 ? size2 : size1;
+    });
+    setScaleFinal(() => {
+      const size1 =  window.innerHeight / 2500;
+      const size2 =  window.innerWidth / 2000;
+      console.log(size1, size2);
+      return size1 > size2 ? size2 : size1;
+    });
   }, [window.innerWidth]);
 
   const [keyframeN, setKeyframeN] = useState(0);
   const [section, setSection] = useState(0);
   const [scale, setScale] = useState(0);
+  const [scaleFinal, setScaleFinal] = useState(0);
   const [positionX, setPositionX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
   const [rotationZ, setRotationZ] = useState(0);
@@ -157,7 +169,7 @@ const DesktopProjects = (props: IProjects) => {
     setScale(
       transformBetween(
         [window.innerHeight / 4, window.innerHeight / 3],
-        [fitScale, window.innerHeight / 2000],
+        [fitScale, scaleFinal],
         frame
       )
     );
@@ -213,7 +225,7 @@ const DesktopProjects = (props: IProjects) => {
         -endingRotationZ + (mousePosition.y - window.innerHeight / 2) / 10000,
       ],
     ],
-    scale: [scale, window.innerHeight / 2000, window.innerHeight / 2000],
+    scale: [scale, scaleFinal, scaleFinal],
   };
 
   const { positionEased, rotationEased, scaleEased, colorEased } = useSpring({
@@ -260,10 +272,7 @@ const DesktopProjects = (props: IProjects) => {
       <ul ref={list}>
         {props.projects.results.map((project: any, i: number) => {
           return (
-            <StyledProjectLi
-              index={i}
-              key={i}
-            >
+            <StyledProjectLi index={i} key={i}>
               <ProjectBlock project={project} />
             </StyledProjectLi>
           );
@@ -285,6 +294,7 @@ const StyledMobileUl = styled.ul`
     left: 0;
     top: 0;
     background-size: 20vw 20vw;
+    z-index: -1;
     background-image: linear-gradient(
         to right,
         ${COLORS.black} 1px,

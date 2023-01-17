@@ -35,6 +35,7 @@ const StyledFactsContainer = styled.section`
     height: 100%;
     left: 0;
     top: 0;
+    z-index:-1;
     background-size: 20vw 20vw;
     background-image: linear-gradient(
         to right,

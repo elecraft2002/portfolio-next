@@ -31,6 +31,7 @@ const InfoContainer = styled.section`
     height: 100%;
     left: 0;
     top: 0;
+    z-index:-1;
     background-size: 20vw 20vw;
     background-image: linear-gradient(
         to right,
@@ -188,7 +189,6 @@ export default function Info(props: IHome) {
       document.removeEventListener("resize", handleScrollFade);
     };
   }, []);
-
   return (
     <InfoContainer ref={ref} style={{ opacity: opacity }}>
       {/* <Wave1 from={COLORS.blue} to={COLORS.black} /> */}
@@ -215,7 +215,7 @@ export default function Info(props: IHome) {
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            <Image {...likeGif} alt="like guy" />
+            <img src={props.homepage.data.photo.url} width={props.homepage.data?.photo.dimensions.width}  height={props.homepage.data?.photo.dimensions.height} alt={props.homepage.data?.photo.alt} />
           </Window>
         </InfoGrid>
         <SHeading2 color={COLORS.white}>Projekty</SHeading2>

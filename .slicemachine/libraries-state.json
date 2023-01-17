@@ -359,7 +359,193 @@
           "fileName": "index",
           "extension": "js"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\vitsu\\OneDrive\\Dokumenty\\Weby a projekty\\Portfolio-nextjs\\portfolio-nextjs-2\\.slicemachine\\assets\\slices\\InfoTextBlock\\default\\preview.png",
+            "width": 1280,
+            "height": 800
+          }
+        }
+      },
+      "project_text": {
+        "library": "slices",
+        "id": "project_text",
+        "name": "ProjectText",
+        "description": "ProjectText",
+        "model": {
+          "id": "project_text",
+          "type": "SharedSlice",
+          "name": "ProjectText",
+          "description": "ProjectText",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ProjectText",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading2,heading3"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "color": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Color",
+                    "placeholder": "",
+                    "options": [
+                      "whiteTheme",
+                      "blueTheme",
+                      "redTheme",
+                      "darkTheme"
+                    ],
+                    "default_value": "whiteTheme"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "withImage",
+              "name": "With image",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "ProjectText",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading2,heading3"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "color": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Color",
+                    "placeholder": "",
+                    "options": [
+                      "whiteTheme",
+                      "blueTheme",
+                      "redTheme",
+                      "darkTheme"
+                    ],
+                    "default_value": "whiteTheme"
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading2",
+                  "text": "Unhappy",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Nisi commodo reprehenderit commodo mollit voluptate non.",
+                  "spans": []
+                }
+              ],
+              "color": "whiteTheme"
+            },
+            "slice_type": "project_text"
+          },
+          "withImage": {
+            "variation": "withImage",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading2",
+                  "text": "Personal",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Lorem magna in in proident proident eiusmod enim dolore Lorem anim.",
+                  "spans": []
+                }
+              ],
+              "color": "blueTheme",
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43"
+              }
+            },
+            "slice_type": "project_text"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "tsx"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\vitsu\\OneDrive\\Dokumenty\\Weby a projekty\\Portfolio-nextjs\\portfolio-nextjs-2\\.slicemachine\\assets\\slices\\ProjectText\\default\\preview.png",
+            "width": 1280,
+            "height": 800
+          }
+        }
       },
       "text_with_features": {
         "library": "slices",

@@ -6,6 +6,64 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for 404 documents */
+interface _404DocumentData {
+    /**
+     * Error Message field in *404*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: 404.error_message
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    error_message: prismicT.TitleField;
+    /**
+     * Error Image field in *404*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: 404.error_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    error_image: prismicT.ImageField<never>;
+    /**
+     * Home field in *404*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: 404.home
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    home: prismicT.RichTextField;
+}
+/**
+ * 404 document from Prismic
+ *
+ * - **API ID**: `404`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type _404Document<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<_404DocumentData>, "404", Lang>;
+/** Content for Footer documents */
+type FooterDocumentData = Record<string, never>;
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for Homepage documents */
 interface HomapageDocumentData {
     /**
@@ -344,7 +402,23 @@ interface ProjectDocumentData {
      *
      */
     visible_at_homepage: prismicT.BooleanField;
+    /**
+     * Slice Zone field in *Project*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ProjectDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Project → Slice Zone*
+ *
+ */
+type ProjectDocumentDataSlicesSlice = ProjectTextSlice;
 /**
  * Project document from Prismic
  *
@@ -427,7 +501,7 @@ export interface SettingsDocumentDataSocialsItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = HomapageDocument | NavigationDocument | PageDocument | ProjectDocument | SettingsDocument;
+export type AllDocumentTypes = _404Document | FooterDocument | HomapageDocument | NavigationDocument | PageDocument | ProjectDocument | SettingsDocument;
 /**
  * Primary content in Hero → Primary
  *
@@ -668,6 +742,122 @@ type InfoTextBlockSliceVariation = InfoTextBlockSliceDefault;
  */
 export type InfoTextBlockSlice = prismicT.SharedSlice<"info_text_block", InfoTextBlockSliceVariation>;
 /**
+ * Primary content in ProjectText → Primary
+ *
+ */
+interface ProjectTextSliceDefaultPrimary {
+    /**
+     * Title field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: project_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: project_text.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Color field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **Default Value**: whiteTheme
+     * - **API ID Path**: project_text.primary.color
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    color: prismicT.SelectField<"whiteTheme" | "blueTheme" | "redTheme" | "darkTheme", "filled">;
+}
+/**
+ * Default variation for ProjectText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ProjectText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectTextSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ProjectTextSliceDefaultPrimary>, never>;
+/**
+ * Primary content in ProjectText → Primary
+ *
+ */
+interface ProjectTextSliceWithImagePrimary {
+    /**
+     * Title field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: project_text.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: project_text.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Color field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **Default Value**: whiteTheme
+     * - **API ID Path**: project_text.primary.color
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    color: prismicT.SelectField<"whiteTheme" | "blueTheme" | "redTheme" | "darkTheme", "filled">;
+    /**
+     * Image field in *ProjectText → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project_text.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * With image variation for ProjectText Slice
+ *
+ * - **API ID**: `withImage`
+ * - **Description**: `ProjectText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectTextSliceWithImage = prismicT.SharedSliceVariation<"withImage", Simplify<ProjectTextSliceWithImagePrimary>, never>;
+/**
+ * Slice variation for *ProjectText*
+ *
+ */
+type ProjectTextSliceVariation = ProjectTextSliceDefault | ProjectTextSliceWithImage;
+/**
+ * ProjectText Shared Slice
+ *
+ * - **API ID**: `project_text`
+ * - **Description**: `ProjectText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectTextSlice = prismicT.SharedSlice<"project_text", ProjectTextSliceVariation>;
+/**
  * Primary content in TextWithFeatures → Primary
  *
  */
@@ -786,6 +976,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataFactstextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { _404DocumentData, _404Document, FooterDocumentData, FooterDocument, HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataFactstextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, ProjectTextSliceDefaultPrimary, ProjectTextSliceDefault, ProjectTextSliceWithImagePrimary, ProjectTextSliceWithImage, ProjectTextSliceVariation, ProjectTextSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

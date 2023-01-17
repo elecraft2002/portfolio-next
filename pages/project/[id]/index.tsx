@@ -1,33 +1,48 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { createClient } from "../../../prismicio";
+import { Layout } from "../../../src/components/Layout";
+import Project from "../../../components/project/Project";
 // import { createClient } from '@prismicio/client'
 
 export default function Index(props) {
   const router = useRouter();
   const id = router.query.id as string;
-  console.log(props);
-  if (Object.keys(props).length === 0) return <p>404</p>;
+  console.log(props.project);
   return (
-    <div>
-      {/* <h1>{props.project.data.name}</h1> */}
-      {id}
-    </div>
+    <Layout
+      alternateLanguages={props.settings.alternate_languages}
+      navigation={props.navigation}
+      settings={props.settings}
+    >
+      <Project project={props.project} />
+    </Layout>
   );
 }
 
 export async function getStaticProps({ locale, previewData, params }) {
-  const client = createClient({ previewData });
-  const navigation = await client.getSingle("navigation", { lang: locale });
-  const settings = await client.getSingle("settings", { lang: locale });
-  const project = await client.getByID(params.id, { lang: locale });
-  return {
-    props: {
-      navigation,
-      settings,
-      project,
-    },
-  };
+  try {
+    const client = createClient({ previewData });
+    const navigation = await client.getSingle("navigation", { lang: locale });
+    const settings = await client.getSingle("settings", { lang: locale });
+    const project = await client.getByID(params.id, { lang: locale });
+
+    return {
+      props: {
+        navigation,
+        settings,
+        project,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+        // statusCode: 301
+      },
+    };
+  }
 }
 
 export async function getStaticPaths() {

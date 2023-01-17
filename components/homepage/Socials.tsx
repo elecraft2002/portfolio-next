@@ -1,6 +1,7 @@
 import { PrismicImage, PrismicLink } from "@prismicio/react";
 import React from "react";
 import styled from "styled-components";
+import { COLORS } from "../../src/GlobalStyles";
 interface ISocials {
   socials: any[];
 }
@@ -18,8 +19,7 @@ const StyledLinkContainer = styled.div`
   align-items: center;
   transition: 0.5s;
   &:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 5px red);
+    transform: scale(1.2);
   }
 `;
 
@@ -27,7 +27,7 @@ const Social = ({ data }) => {
   return (
     <>
       <StyledLinkContainer>
-        <PrismicImage field={data.icon} />
+        <PrismicImage field={data.icon} style={{width:"100%"}}/>
       </StyledLinkContainer>
     </>
   );
