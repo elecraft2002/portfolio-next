@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import { createClient } from "../../../prismicio";
 import { Layout } from "../../../src/components/Layout";
 import Project from "../../../components/project/Project";
+
 // import { createClient } from '@prismicio/client'
 
 export default function Index(props) {
   const router = useRouter();
   const id = router.query.id as string;
-  console.log(props.project);
+  console.log(props);
+  if (Object.keys(props).length === 0) return <p>404</p>;
   return (
     <Layout
       alternateLanguages={props.settings.alternate_languages}
@@ -18,6 +20,22 @@ export default function Index(props) {
       <Project project={props.project} />
     </Layout>
   );
+}
+
+export async function getStaticPaths() {
+  const client = createClient();
+
+  const pages = await client.getAllByType("page", { lang: "*" });
+
+  return {
+    paths: pages.map((page) => {
+      return {
+        params: { id: page.id },
+        locale: page.lang,
+      };
+    }),
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ locale, previewData, params }) {
@@ -43,20 +61,4 @@ export async function getStaticProps({ locale, previewData, params }) {
       },
     };
   }
-}
-
-export async function getStaticPaths() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("page", { lang: "*" });
-
-  return {
-    paths: pages.map((page) => {
-      return {
-        params: { id: page.id },
-        locale: page.lang,
-      };
-    }),
-    fallback: true,
-  };
 }
