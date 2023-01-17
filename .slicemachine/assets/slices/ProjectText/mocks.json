@@ -9,14 +9,14 @@
       "title": [
         {
           "type": "heading2",
-          "text": "Unhappy",
+          "text": "Market",
           "spans": []
         }
       ],
       "description": [
         {
           "type": "paragraph",
-          "text": "Nisi commodo reprehenderit commodo mollit voluptate non.",
+          "text": "Ipsum est enim id reprehenderit anim esse laborum laboris qui minim consequat consequat.",
           "spans": []
         }
       ],
@@ -34,18 +34,18 @@
       "title": [
         {
           "type": "heading2",
-          "text": "Personal",
+          "text": "Remarkable",
           "spans": []
         }
       ],
       "description": [
         {
           "type": "paragraph",
-          "text": "Lorem magna in in proident proident eiusmod enim dolore Lorem anim.",
+          "text": "Exercitation non occaecat deserunt eiusmod irure minim incididunt esse officia veniam incididunt eiusmod exercitation pariatur ex. Qui anim sunt cupidatat qui. Fugiat quis excepteur cillum voluptate in et minim ex irure deserunt veniam ut dolore est.",
           "spans": []
         }
       ],
-      "color": "blueTheme",
+      "color": "darkTheme",
       "image": {
         "dimensions": {
           "width": 900,
@@ -53,7 +53,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43"
+        "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"
       }
     },
     "slice_type": "project_text"

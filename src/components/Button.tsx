@@ -14,10 +14,10 @@ interface IButtonStyle {
 const ButtonStyle = styled.button<IButtonStyle>`
   ${(props) => {
     if (props.colorType == "gradientPink") {
-      return `color:${COLORS.white}; background: linear-gradient(30deg, ${COLORS.purple} 0%, ${COLORS.pink} 100%);`;
+      return `color:${COLORS.whiteSaturated}; background: linear-gradient(30deg, ${COLORS.purpleSaturated} 0%, ${COLORS.pinkSaturated} 100%);`;
     }
     if (props.colorType == "white") {
-      return `color: ${COLORS.purple}; background: ${COLORS.white};`;
+      return `color: ${COLORS.purpleSaturated}; background: ${COLORS.whiteSaturated};`;
     }
   }};
   &:hover {

@@ -6,8 +6,15 @@ export const COLORS = {
   white: "#f8f7ff",
   black: "#000",
   red: "#FF312E",
-  blue: "#256EFF",
+  blue: "#00256e",
   green: "#09FF00",
+  pinkSaturated: "#E637BF",
+  purpleSaturated: "#540D6E",
+  whiteSaturated: "#f8f7ff",
+  blackSaturated: "#000",
+  redSaturated: "#FF312E",
+  blueSaturated: "#256EFF",
+  greenSaturated: "#09FF00",
 };
 export const NAV_HEIGHT = "80px";
 export const SIZE = {

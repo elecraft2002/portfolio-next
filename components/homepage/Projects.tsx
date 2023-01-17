@@ -121,13 +121,13 @@ const DesktopProjects = (props: IProjects) => {
     setFitScale(() => {
       const size1 = window.innerWidth / 650 + 100 / window.innerWidth;
       const size2 = window.innerHeight / 650 + 100 / window.innerHeight;
-      console.log(size1, size2);
+      // console.log(size1, size2);
       return size1 < size2 ? size2 : size1;
     });
     setScaleFinal(() => {
       const size1 =  window.innerHeight / 2500;
       const size2 =  window.innerWidth / 2000;
-      console.log(size1, size2);
+      // console.log(size1, size2);
       return size1 > size2 ? size2 : size1;
     });
   }, [window.innerWidth]);
