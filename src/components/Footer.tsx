@@ -23,7 +23,6 @@ const StyledFooterContainer = styled.div`
   text-align: center;
 `;
 export const Footer = ({ settings }) => {
-  console.log(settings);
   return (
     <StyledFooter>
       <StyledFooterContainer>

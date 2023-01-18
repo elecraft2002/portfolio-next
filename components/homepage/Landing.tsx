@@ -13,7 +13,6 @@ import {
 } from "../../src/GlobalStyles";
 import { IIphone, Iphone, IRotation } from "../../src/assets/models/Iphone";
 import { useSpring, config, animated } from "@react-spring/three";
-import wallpaper from "../../src/assets/imgs/Iphone_screen.jpg";
 import { IHome } from "./Homepage";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { Parallax } from "react-scroll-parallax";
@@ -88,8 +87,9 @@ const Viewer = (props: IIphone) => {
   );
 };
 
-interface Controlls {
+interface Controlls extends IHome {
   mouseEvent: any;
+  
 }
 const CanvasBackground = (props: Controlls) => {
   const [rotation, updateRotation] = useState<IRotation>({ x: 0, y: 0, z: 0 });
@@ -113,10 +113,10 @@ const CanvasBackground = (props: Controlls) => {
       );
     };
   }, []);
-
+console.log(props)
   return (
     <CanvasBackgroundContainer>
-      <Viewer image={wallpaper.src} rotation={rotation} />
+      <Viewer image={props.homepage.data.mobile_screen.url} rotation={rotation} />
     </CanvasBackgroundContainer>
   );
 };
@@ -205,7 +205,7 @@ export default function Landing(props: IHome) {
 
   return (
     <LandingContainer>
-      <CanvasBackground mouseEvent={Controlls} />
+      <CanvasBackground mouseEvent={Controlls} homepage={props.homepage} />
       <div ref={Controlls}>
         <LandingContent homepage={props.homepage} />
       </div>
