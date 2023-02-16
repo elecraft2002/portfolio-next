@@ -258,15 +258,15 @@ export interface NavigationDocumentDataLinksItem {
      */
     label: prismicT.TitleField;
     /**
-     * Link field in *Navigation → Links*
+     * Relative Link field in *Navigation → Links*
      *
-     * - **Field Type**: Link
-     * - **Placeholder**: Link for navigation item
-     * - **API ID Path**: navigation.links[].link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: navigation.links[].relative_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    link: prismicT.LinkField;
+    relative_link: prismicT.RichTextField;
 }
 /**
  * Navigation document from Prismic

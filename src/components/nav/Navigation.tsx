@@ -47,7 +47,7 @@ export default function Navigation({
           return (
             <LinkContainer key={i}>
               <NavigationLink
-                link={link.link}
+                relative_link={link.relative_link}
                 label={link.label}
               ></NavigationLink>
             </LinkContainer>

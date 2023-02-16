@@ -7,7 +7,7 @@ import { COLORS } from "../../GlobalStyles";
 
 export interface ILink {
   settings: any;
-  link: any;
+  relative_link: any;
   label: any;
 }
 const Link = styled.span`
@@ -19,10 +19,9 @@ const Link = styled.span`
   font-weight: 500;
 `;
 export default function NavigationLink(props: any) {
-  console.log(props)
   return (
     <Link>
-      <PrismicLink /* field={props.link}  */href={props.link.url}>
+      <PrismicLink /* field={props.link}  */href={props.relative_link[0].text} >
         <PrismicText field={props.label} />
       </PrismicLink>
     </Link>
