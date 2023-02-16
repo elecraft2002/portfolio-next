@@ -83,7 +83,7 @@ export default function Window(props: IWindow) {
   // }, []);
   return (
     <OriginalPosotion ref={ref} height={props.height} width={props.width}>
-      <Draggable handle=".handler">
+      <Draggable handle=".handler" >
         <WindowContainer
           height={props.height}
           width={props.width}
