@@ -15,6 +15,7 @@ import {
 } from "@prismicio/react";
 
 const InfoContainer = styled.section`
+  overflow-x:hidden;
   position: relative;
   margin-top: -4em;
   z-index: 1;

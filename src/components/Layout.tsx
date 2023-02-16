@@ -9,7 +9,7 @@ export const Layout = ({
   children,
 }) => {
   return (
-    <div style={{overflowX:"hidden"}}>
+    <div >
       <Navigation
         alternateLanguages={alternateLanguages}
         navigation={navigation}

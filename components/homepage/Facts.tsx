@@ -24,6 +24,7 @@ const StyledFactsContainer = styled.section`
     100% 100%,
     0 100%
   );
+  overflow-x:hidden;
   display: flex;
   flex-direction: column;
   position: relative;
