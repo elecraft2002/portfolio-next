@@ -26,7 +26,7 @@ const StyledSectionContainer = styled.section<Theme>`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  position:relative;
+  position: relative;
 `;
 const StyledSectionBackground = styled.section<Theme>`
   ${grid()};
@@ -69,7 +69,9 @@ const ProjectText = ({ slice }) => {
         )}
         <StyledFormating>
           {slice.primary.description && (
-            <PrismicRichText field={slice.primary.description} />
+            <span>
+              <PrismicRichText field={slice.primary.description} />
+            </span>
           )}
           {slice.variation == "withImage" && (
             <StyledImageContainer>

@@ -125,8 +125,8 @@ const DesktopProjects = (props: IProjects) => {
       return size1 < size2 ? size2 : size1;
     });
     setScaleFinal(() => {
-      const size1 =  window.innerHeight / 2500;
-      const size2 =  window.innerWidth / 2000;
+      const size1 = window.innerHeight / 2500;
+      const size2 = window.innerWidth / 2000;
       // console.log(size1, size2);
       return size1 > size2 ? size2 : size1;
     });
@@ -328,7 +328,7 @@ export default function Projects(props: IProjects) {
     };
   }, []);
   return (
-    <StyledProjectsContainer>
+    <StyledProjectsContainer id="projects">
       {screenWidth > parseInt(SIZE.tablet) ? (
         <DesktopProjects projects={props.projects} />
       ) : (

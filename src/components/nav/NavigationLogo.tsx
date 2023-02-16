@@ -7,6 +7,8 @@ import { NAV_HEIGHT } from "../../GlobalStyles";
 
 const SNavLogo = styled.figure`
   height: ${NAV_HEIGHT};
+  display:flex;
+  align-items:center;
 `;
 
 export default function NavigationLogo({ settings }: any) {

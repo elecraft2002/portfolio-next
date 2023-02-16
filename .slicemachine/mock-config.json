@@ -57,6 +57,18 @@
             "blocks": 1
           }
         }
+      },
+      "factsheading": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "factsdescription": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "project": {},

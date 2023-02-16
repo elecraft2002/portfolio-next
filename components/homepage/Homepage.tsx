@@ -30,9 +30,9 @@ export default function Home(props: IHome) {
         <Info homepage={props.homepage} />
         <Projects projects={props.projects}/>
         <Facts homepage={props.homepage} settings={props.settings} />
-        <Form homepage={props.homepage} />
+        {/* <Form homepage={props.homepage} /> */}
       </ParallaxProvider>
-      <Popup>
+      {/* <Popup>
         <Window
           name="KONTAKTOVAT"
           width={"200px"}
@@ -43,7 +43,7 @@ export default function Home(props: IHome) {
           <Button colorType="gradientPink">ANO</Button>
           <Button colorType="gradientPink">NE</Button>
         </Window>
-      </Popup>
+      </Popup> */}
     </>
   );
 }

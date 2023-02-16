@@ -133,9 +133,9 @@ const StyledTextContainer = styled.div`
 `;
 export default function Facts(props: IHome) {
   return (
-    <StyledFactsContainer>
+    <StyledFactsContainer id="contact">
       <InfoCenterBlock>
-        <SHeading2 color={COLORS.white}>Vaše weby budou výjmečné</SHeading2>
+        <SHeading2 color={COLORS.white}>{props.homepage.data.factsheading[0].text}</SHeading2>
         <InfoGrid>
           <Window
             height="100%"
@@ -143,9 +143,11 @@ export default function Facts(props: IHome) {
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            <Image
-              {...likeGif}
-              alt="like guy"
+            <img
+            src={props.homepage.data.factsimage.url}
+              alt={props.homepage.data.factsimage.alt}
+              width={props.homepage.data.factsimage.dimensions.width}
+              height={props.homepage.data.factsimage.dimensions.height}
               style={{
                 width: "100%",
                 height: "100%",
@@ -155,12 +157,7 @@ export default function Facts(props: IHome) {
             />
           </Window>
           <StyledTextContainer>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium quod doloribus magni expedita maxime quidem architecto
-              labore dolores quia explicabo voluptatum quos, enim, adipisci
-              illum libero in facilis officiis eius?
-            </p>
+            <PrismicRichText field={props.homepage.data.factsdescription}/>
             <Socials socials={props.settings?.data.socials} />
           </StyledTextContainer>
           {/* <div>

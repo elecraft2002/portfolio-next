@@ -16,7 +16,7 @@ export const COLORS = {
   blueSaturated: "#256EFF",
   greenSaturated: "#09FF00",
 };
-export const NAV_HEIGHT = "80px";
+export const NAV_HEIGHT = "70px";
 export const SIZE = {
   mobileS: "320px",
   mobileM: "375px",

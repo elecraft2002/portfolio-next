@@ -133,16 +133,38 @@ interface HomapageDocumentData {
      */
     infotext: prismicT.GroupField<Simplify<HomapageDocumentDataInfotextItem>>;
     /**
-     * InfoText field in *Homepage*
+     * FactsHeading field in *Homepage*
      *
-     * - **Field Type**: Group
+     * - **Field Type**: Title
      * - **Placeholder**: *None*
-     * - **API ID Path**: homapage.factstext[]
+     * - **API ID Path**: homapage.factsheading
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    factstext: prismicT.GroupField<Simplify<HomapageDocumentDataFactstextItem>>;
+    factsheading: prismicT.TitleField;
+    /**
+     * FactsDescription field in *Homepage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factsdescription
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    factsdescription: prismicT.RichTextField;
+    /**
+     * FactsImage field in *Homepage*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homapage.factsimage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    factsimage: prismicT.ImageField<never>;
     /**
      * Slice Zone field in *Homepage*
      *
@@ -186,42 +208,6 @@ export interface HomapageDocumentDataInfotextItem {
      * - **Field Type**: Image
      * - **Placeholder**: *None*
      * - **API ID Path**: homapage.infotext[].icon
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    icon: prismicT.ImageField<never>;
-}
-/**
- * Item in Homepage → InfoText
- *
- */
-export interface HomapageDocumentDataFactstextItem {
-    /**
-     * Title field in *Homepage → InfoText*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homapage.factstext[].title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title: prismicT.KeyTextField;
-    /**
-     * Description field in *Homepage → InfoText*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homapage.factstext[].description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-    /**
-     * Topic Icon field in *Homepage → InfoText*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homapage.factstext[].icon
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
@@ -368,17 +354,6 @@ interface ProjectDocumentData {
      *
      */
     type: prismicT.SelectField<"Projekt" | "2", "filled">;
-    /**
-     * Description field in *Project*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.description
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
     /**
      * Description short field in *Project*
      *
@@ -976,6 +951,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { _404DocumentData, _404Document, FooterDocumentData, FooterDocument, HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataFactstextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, ProjectTextSliceDefaultPrimary, ProjectTextSliceDefault, ProjectTextSliceWithImagePrimary, ProjectTextSliceWithImage, ProjectTextSliceVariation, ProjectTextSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { _404DocumentData, _404Document, FooterDocumentData, FooterDocument, HomapageDocumentData, HomapageDocumentDataInfotextItem, HomapageDocumentDataSlicesSlice, HomapageDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocument, AllDocumentTypes, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceWithButtonPrimary, HeroSliceWithButton, HeroSliceVariation, HeroSlice, ImageSliceWhitePrimary, ImageSliceWhite, ImageSliceLightSlatePrimary, ImageSliceLightSlate, ImageSliceVariation, ImageSlice, InfoTextBlockSliceDefaultPrimary, InfoTextBlockSliceDefault, InfoTextBlockSliceVariation, InfoTextBlockSlice, ProjectTextSliceDefaultPrimary, ProjectTextSliceDefault, ProjectTextSliceWithImagePrimary, ProjectTextSliceWithImage, ProjectTextSliceVariation, ProjectTextSlice, TextWithFeaturesSliceDefaultPrimary, TextWithFeaturesSliceDefaultItem, TextWithFeaturesSliceDefault, TextWithFeaturesSliceVariation, TextWithFeaturesSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefault, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

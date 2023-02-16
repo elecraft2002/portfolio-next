@@ -16,7 +16,7 @@ export const Layout = ({
         settings={settings}
       />
       <main>{children}</main>
-      <Footer settings={settings} />
+      {/* <Footer settings={settings} /> */}
     </div>
   );
 };

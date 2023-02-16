@@ -14,7 +14,7 @@ import {
 import { IIphone, Iphone, IRotation } from "../../src/assets/models/Iphone";
 import { useSpring, config, animated } from "@react-spring/three";
 import { IHome } from "./Homepage";
-import { PrismicRichText, PrismicText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
 import { Parallax } from "react-scroll-parallax";
 import { useInView } from "react-intersection-observer";
 
@@ -89,7 +89,6 @@ const Viewer = (props: IIphone) => {
 
 interface Controlls extends IHome {
   mouseEvent: any;
-  
 }
 const CanvasBackground = (props: Controlls) => {
   const [rotation, updateRotation] = useState<IRotation>({ x: 0, y: 0, z: 0 });
@@ -113,10 +112,12 @@ const CanvasBackground = (props: Controlls) => {
       );
     };
   }, []);
-console.log(props)
   return (
     <CanvasBackgroundContainer>
-      <Viewer image={props.homepage.data.mobile_screen.url} rotation={rotation} />
+      <Viewer
+        image={props.homepage.data.mobile_screen.url}
+        rotation={rotation}
+      />
     </CanvasBackgroundContainer>
   );
 };
@@ -184,14 +185,11 @@ function LandingContent(props: IHome) {
             </StyledFadeInContainer>
             <SubTitle>{props.homepage.data.subtitle}</SubTitle>
           </span>
-          <Button
-            colorType="white"
-            onClick={() => {
-              console.log("Klik");
-            }}
-          >
-            Objednat
-          </Button>
+          <PrismicLink href="#contact">
+            <Button colorType="white">
+              Kontaktovat
+            </Button>
+          </PrismicLink>
           <Description>
             <PrismicRichText field={props.homepage.data.description} />
           </Description>

@@ -193,7 +193,7 @@ export default function Info(props: IHome) {
     <InfoContainer ref={ref} style={{ opacity: opacity }}>
       {/* <Wave1 from={COLORS.blue} to={COLORS.black} /> */}
       <InfoCenterBlock>
-        <SHeading2 color={COLORS.white}>Vaše weby budou výjmečné</SHeading2>
+        <SHeading2 color={COLORS.white}>Proč Vojtík Design?</SHeading2>
         <InfoGrid>
           <div>
             <ul>

@@ -34,6 +34,13 @@ const ButtonStyle = styled.button<IButtonStyle>`
 
 export default function Button(props: IButton) {
   return (
-    <ButtonStyle colorType={props.colorType}>{props.children}</ButtonStyle>
+    <ButtonStyle
+      colorType={props.colorType}
+      onClick={() => {
+        props.onClick && props.onClick();
+      }}
+    >
+      {props.children}
+    </ButtonStyle>
   );
 }
