@@ -14,7 +14,14 @@
     "siteTitle": [
       {
         "type": "heading1",
-        "text": "Present",
+        "text": "Average",
+        "spans": []
+      }
+    ],
+    "site_description": [
+      {
+        "type": "paragraph",
+        "text": "Sunt duis quis aute consectetur consectetur esse aliqua. Esse dolor incididunt ipsum irure amet tempor reprehenderit dolore veniam exercitation irure.",
         "spans": []
       }
     ],
@@ -36,11 +43,11 @@
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72"
+          "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f"
         },
         "link": {
           "link_type": "Web",
-          "url": "http://twitter.com"
+          "url": "https://prismic.io"
         }
       }
     ]

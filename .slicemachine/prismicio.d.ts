@@ -418,6 +418,17 @@ interface SettingsDocumentData {
      */
     siteTitle: prismicT.TitleField;
     /**
+     * Site Description field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.site_description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    site_description: prismicT.RichTextField;
+    /**
      * Logo field in *Settings*
      *
      * - **Field Type**: Image

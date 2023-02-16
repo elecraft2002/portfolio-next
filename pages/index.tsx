@@ -8,15 +8,23 @@ import React from "react";
 import { Layout } from "../src/components/Layout";
 import Homepage from "../components/homepage/Homepage";
 
-const Index = ({ page, navigation, settings, homepage,projects }) => {
+const Index = ({ page, navigation, settings, homepage, projects }) => {
+  console.log(settings)
   return (
-    <Layout
-      alternateLanguages={settings.alternate_languages}
-      navigation={navigation}
-      settings={settings}
-    >
-      <Homepage homepage={homepage} settings={settings} projects={projects} />
-    </Layout>
+    <>
+      <Head>
+        <title>{settings.data.siteTitle[0].text}</title>
+        <link rel="shortcut icon" href={settings.data.logo.url} />
+        <meta name="description" content={settings.data.site_description[0]?.text} />
+      </Head>
+      <Layout
+        alternateLanguages={settings.alternate_languages}
+        navigation={navigation}
+        settings={settings}
+      >
+        <Homepage homepage={homepage} settings={settings} projects={projects} />
+      </Layout>
+    </>
   );
 };
 

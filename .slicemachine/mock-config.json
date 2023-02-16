@@ -47,7 +47,13 @@
           "blocks": 1
         }
       },
-      "socials": {}
+      "socials": {},
+      "site_description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
     },
     "homapage": {
       "infotext": {
