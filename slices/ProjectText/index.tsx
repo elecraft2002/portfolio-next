@@ -57,7 +57,6 @@ const StyledImage = styled.img`
 `;
 
 const ProjectText = ({ slice }) => {
-  console.log(slice);
   return (
     <StyledSectionBackground theme={slice.primary.color}>
       <StyledSectionContainer>

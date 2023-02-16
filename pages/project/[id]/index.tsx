@@ -10,7 +10,6 @@ import Head from "next/head";
 export default function Index(props) {
   const router = useRouter();
   const id = router.query.id as string;
-  console.log(props.project);
   if (Object.keys(props).length === 0) return <p>404</p>;
   return (
     <>

@@ -10,7 +10,6 @@ const StyledPageContainer = styled.div`
 `;
 
 export default function Project({ project }: any) {
-  console.log(project);
   return (
     <ParallaxProvider>
       <StyledPageContainer>
