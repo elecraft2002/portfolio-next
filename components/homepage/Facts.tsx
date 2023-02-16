@@ -134,7 +134,7 @@ const StyledTextContainer = styled.div`
 `;
 export default function Facts(props: IHome) {
   return (
-    <StyledFactsContainer id="contact">
+    <StyledFactsContainer id="contacts">
       <InfoCenterBlock>
         <SHeading2 color={COLORS.white}>{props.homepage.data.factsheading[0].text}</SHeading2>
         <InfoGrid>
