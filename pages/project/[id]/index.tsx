@@ -9,7 +9,6 @@ import Project from "../../../components/project/Project";
 export default function Index(props) {
   const router = useRouter();
   const id = router.query.id as string;
-  console.log(props);
   if (Object.keys(props).length === 0) return <p>404</p>;
   return (
     <Layout
