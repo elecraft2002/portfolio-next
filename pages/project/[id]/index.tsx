@@ -3,21 +3,35 @@ import { useRouter } from "next/router";
 import { createClient } from "../../../prismicio";
 import { Layout } from "../../../src/components/Layout";
 import Project from "../../../components/project/Project";
+import Head from "next/head";
 
 // import { createClient } from '@prismicio/client'
 
 export default function Index(props) {
   const router = useRouter();
   const id = router.query.id as string;
+  console.log(props.project);
   if (Object.keys(props).length === 0) return <p>404</p>;
   return (
-    <Layout
-      alternateLanguages={props.settings.alternate_languages}
-      navigation={props.navigation}
-      settings={props.settings}
-    >
-      <Project project={props.project} />
-    </Layout>
+    <>
+      <Head>
+        <title>
+          {props.settings.data.siteTitle[0].text} - {props.project.data.name}
+        </title>
+        <link rel="shortcut icon" href={props.settings.data.logo.url} />
+        <meta
+          name="description"
+          content={props.project.data.description_short[0].text}
+        />
+      </Head>
+      <Layout
+        alternateLanguages={props.settings.alternate_languages}
+        navigation={props.navigation}
+        settings={props.settings}
+      >
+        <Project project={props.project} />
+      </Layout>
+    </>
   );
 }
 
