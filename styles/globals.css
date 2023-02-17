@@ -13,3 +13,7 @@
 body {
   font-family: "Fira Sans", sans-serif;
 }
+html,
+#__next {
+  scroll-behavior: smooth;
+}

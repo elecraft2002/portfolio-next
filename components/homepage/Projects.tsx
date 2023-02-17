@@ -247,7 +247,7 @@ const DesktopProjects = (props: IProjects) => {
           style={{ opacity: opacity }}
         >
           <Suspense fallback={null}>
-            <ambientLight color={"white"} intensity={1} />
+            <ambientLight color={"white"} intensity={.5} />
             <animated.mesh
               rotation={rotationEased as any}
               scale={scaleEased as any}

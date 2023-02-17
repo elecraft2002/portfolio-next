@@ -7,9 +7,7 @@ import { components } from "../slices";
 import React from "react";
 import { Layout } from "../src/components/Layout";
 import Homepage from "../components/homepage/Homepage";
-
 const Index = ({ page, navigation, settings, homepage, projects }) => {
-  console.log(settings)
   return (
     <>
       <Head>
