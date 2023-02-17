@@ -4,7 +4,6 @@ import styled from "styled-components";
 import {
   backgroundGradient,
   COLORS,
-  components,
   DEVICE,
   grid,
   SIZE,
@@ -63,7 +62,6 @@ const ProjectText = ({ slice }) => {
         {slice.primary.title && (
           <PrismicRichText
             field={slice.primary.title}
-            components={components}
           />
         )}
         <StyledFormating>
