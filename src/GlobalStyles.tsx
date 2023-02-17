@@ -58,7 +58,6 @@ export const fadeIn = css`
   overflow: hidden;
 `;
 export const backgroundGradient = (theme: string) => {
-  console.log(theme);
   if (theme == "whiteTheme") return `background: ${COLORS.white}`;
   if (theme == "blueTheme")
     return `

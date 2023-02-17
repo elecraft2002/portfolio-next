@@ -24,7 +24,7 @@ const StyledFactsContainer = styled.section`
     100% 100%,
     0 100%
   );
-  overflow-x:hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -36,7 +36,7 @@ const StyledFactsContainer = styled.section`
     height: 100%;
     left: 0;
     top: 0;
-    z-index:-1;
+    z-index: -1;
     background-size: 20vw 20vw;
     background-image: linear-gradient(
         to right,
@@ -136,7 +136,9 @@ export default function Facts(props: IHome) {
   return (
     <StyledFactsContainer id="contacts">
       <InfoCenterBlock>
-        <SHeading2 color={COLORS.white}>{props.homepage.data.factsheading[0].text}</SHeading2>
+        <SHeading2 color={COLORS.white}>
+          {props.homepage.data.factsheading[0].text}
+        </SHeading2>
         <InfoGrid>
           <Window
             height="100%"
@@ -144,8 +146,9 @@ export default function Facts(props: IHome) {
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            <img loading="lazy"
-            src={props.homepage.data.factsimage.url}
+            <img
+              loading="lazy"
+              src={props.homepage.data.factsimage.url}
               alt={props.homepage.data.factsimage.alt}
               width={props.homepage.data.factsimage.dimensions.width}
               height={props.homepage.data.factsimage.dimensions.height}
@@ -158,7 +161,7 @@ export default function Facts(props: IHome) {
             />
           </Window>
           <StyledTextContainer>
-            <PrismicRichText field={props.homepage.data.factsdescription}/>
+            <PrismicRichText field={props.homepage.data.factsdescription} />
             <Socials socials={props.settings?.data.socials} />
           </StyledTextContainer>
           {/* <div>

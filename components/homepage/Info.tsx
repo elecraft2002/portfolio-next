@@ -15,7 +15,7 @@ import {
 } from "@prismicio/react";
 
 const InfoContainer = styled.section`
-  overflow-x:hidden;
+  overflow-x: hidden;
   position: relative;
   margin-top: -4em;
   z-index: 1;
@@ -32,7 +32,7 @@ const InfoContainer = styled.section`
     height: 100%;
     left: 0;
     top: 0;
-    z-index:-1;
+    z-index: -1;
     background-size: 20vw 20vw;
     background-image: linear-gradient(
         to right,
@@ -154,7 +154,7 @@ const InfoText = (props: IInfoText) => {
   );
 };
 const StyledSpacer = styled.div`
-    height:2rem;
+  height: 2rem;
   @media ${DEVICE.tablet} {
     height: calc(150vh + 2rem);
   }
@@ -216,7 +216,12 @@ export default function Info(props: IHome) {
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            <img src={props.homepage.data.photo.url} width={props.homepage.data?.photo.dimensions.width}  height={props.homepage.data?.photo.dimensions.height} alt={props.homepage.data?.photo.alt} />
+            <img
+              src={props.homepage.data.photo.url}
+              width={props.homepage.data?.photo.dimensions.width}
+              height={props.homepage.data?.photo.dimensions.height}
+              alt={props.homepage.data?.photo.alt}
+            />
           </Window>
         </InfoGrid>
         <SHeading2 color={COLORS.white}>Projekty</SHeading2>

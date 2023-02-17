@@ -67,7 +67,6 @@ const StyledTitleWrapper = styled.span`
 `;
 
 export default function ProjectLanding({ project }: any) {
-  console.log(project.data);
   return (
     <StyledLandingContainer>
       <StyledContentWidth>
