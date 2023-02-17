@@ -105,3 +105,25 @@ export const grid = () => {
       linear-gradient(to bottom, ${COLORS.white} 1px, transparent 1px);
   }`;
 };
+export const StyledH2 = styled.h2`
+  font-size: 3rem;
+`;
+export const Title = styled.h1`
+  font-size: 4em;
+  font-weight: 800;
+  margin: 1rem 0;
+  @media ${DEVICE.laptop} {
+    font-size: 7em;
+  }
+`;
+export const SubTitle = styled.p`
+  font-size: 2.9rem;
+  margin: 1rem 0;
+  font-weight: 300;
+  @media ${DEVICE.laptop} {
+    font-size: 3rem;
+    letter-spacing: 16px;
+  }
+`;
+
+export const StyledPargraph = styled.p``;

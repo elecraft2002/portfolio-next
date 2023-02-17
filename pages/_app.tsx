@@ -6,7 +6,7 @@ import { repositoryName, linkResolver } from "../prismicio";
 
 import "../styles/globals.css";
 import React from "react";
-import { COLORS, DEVICE } from "../src/GlobalStyles";
+import { COLORS, DEVICE, StyledH2, StyledPargraph, Title } from "../src/GlobalStyles";
 import styled from "styled-components";
 
 const richTextComponents = {
@@ -40,28 +40,7 @@ const richTextComponents = {
     </PrismicLink>
   ),
 };
-const StyledH2 = styled.h2`
-  font-size: 3rem;
-`;
-const Title = styled.h1`
-  font-size: 4em;
-  font-weight: 800;
-  margin: 1rem 0;
-  @media ${DEVICE.laptop} {
-    font-size: 7em;
-  }
-`;
-const SubTitle = styled.p`
-  font-size: 2.9rem;
-  margin: 1rem 0;
-  font-weight: 300;
-  @media ${DEVICE.laptop} {
-    font-size: 3rem;
-    letter-spacing: 16px;
-  }
-`;
 
-const StyledPargraph = styled.p``;
 
 export const components = {
   heading1: ({ children }) => <Title>{children}</Title>,
