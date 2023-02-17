@@ -44,6 +44,8 @@ const StyledFormating = styled.div`
 const StyledImageContainer = styled.figure`
   min-width: 50%;
   padding: 1rem 0;
+  display:flex;
+  flex-direction:column;
 `;
 
 const StyledCaption = styled.figcaption`
