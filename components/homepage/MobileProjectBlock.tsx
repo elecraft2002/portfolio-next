@@ -68,6 +68,7 @@ export default function MobileProjectBlock(props: IProjectBlock) {
           <StyledImgContainer>
             <Parallax translateY={["10%", "-10%"]}>
               <StyledImg
+                loading="lazy"
                 src={props.project.data.cover_photo.url}
                 alt={props.project.data.cover_photo.alt}
               />

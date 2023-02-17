@@ -44,8 +44,8 @@ const StyledFormating = styled.div`
 const StyledImageContainer = styled.figure`
   min-width: 50%;
   padding: 1rem 0;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledCaption = styled.figcaption`
@@ -61,11 +61,7 @@ const ProjectText = ({ slice }) => {
   return (
     <StyledSectionBackground theme={slice.primary.color}>
       <StyledSectionContainer>
-        {slice.primary.title && (
-          <PrismicRichText
-            field={slice.primary.title}
-          />
-        )}
+        {slice.primary.title && <PrismicRichText field={slice.primary.title} />}
         <StyledFormating>
           {slice.primary.description && (
             <span>
@@ -77,6 +73,7 @@ const ProjectText = ({ slice }) => {
               <StyledImage
                 src={slice.primary.image.url}
                 alt={slice.primary.image.alt}
+                loading="lazy"
               />
               <StyledCaption>{slice.primary.image.alt}</StyledCaption>
             </StyledImageContainer>

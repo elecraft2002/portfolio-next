@@ -27,7 +27,7 @@ const Social = ({ data }) => {
   return (
     <>
       <StyledLinkContainer>
-        <PrismicImage field={data.icon} style={{width:"100%"}}/>
+        <PrismicImage field={data.icon} style={{width:"100%"}} loading="lazy"/>
       </StyledLinkContainer>
     </>
   );

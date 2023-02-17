@@ -144,7 +144,7 @@ export default function Facts(props: IHome) {
             backgroundColor={COLORS.white}
             borderColor={COLORS.black}
           >
-            <img
+            <img loading="lazy"
             src={props.homepage.data.factsimage.url}
               alt={props.homepage.data.factsimage.alt}
               width={props.homepage.data.factsimage.dimensions.width}
