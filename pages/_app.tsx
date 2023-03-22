@@ -6,8 +6,15 @@ import { repositoryName, linkResolver } from "../prismicio";
 
 import "../styles/globals.css";
 import React from "react";
-import { COLORS, DEVICE, StyledH2, StyledPargraph, Title } from "../src/GlobalStyles";
+import {
+  COLORS,
+  DEVICE,
+  StyledH2,
+  StyledPargraph,
+  Title,
+} from "../src/GlobalStyles";
 import styled from "styled-components";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 const richTextComponents = {
   paragraph: ({ children }) => <p className="mb-7 last:mb-0">{children}</p>,
@@ -41,7 +48,6 @@ const richTextComponents = {
   ),
 };
 
-
 export const components = {
   heading1: ({ children }) => <Title>{children}</Title>,
   heading2: ({ children }) => <StyledH2>{children}</StyledH2>,
@@ -64,6 +70,7 @@ export default function App({ Component, pageProps }) {
       richTextComponents={components}
     >
       <PrismicPreview repositoryName={repositoryName}>
+        <GoogleAnalytics trackPageViews />
         <Component {...pageProps} />
       </PrismicPreview>
     </PrismicProvider>
